@@ -1,8 +1,5 @@
 -- Tristan Née
--- Problem Set 4
--- Part A
 
--- [Problem 1]
 DROP FUNCTION IF EXISTS min_submit_interval;
 DELIMITER !
 
@@ -55,7 +52,6 @@ END!
 
 DELIMITER ;
 
--- [Problem 2]
 DROP FUNCTION IF EXISTS max_submit_interval;
 DELIMITER !
 
@@ -107,7 +103,6 @@ END!
 
 DELIMITER ;
 
--- [Problem 3]
 DROP FUNCTION IF EXISTS avg_submit_interval;
 DELIMITER !
 
@@ -142,7 +137,6 @@ END!
 
 DELIMITER ;
 
--- [Problem 4]
 /* Create an index on fileset for sub_id's so that we can check if a particular
  * id submission_id matches sub_id more efficiently. */
 CREATE INDEX idx_sub_id ON fileset(sub_id);
