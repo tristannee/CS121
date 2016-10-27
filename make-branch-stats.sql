@@ -1,14 +1,9 @@
 -- Tristan Née
--- Problem Set 4
--- Part B
 
--- [Problem 1]
 /* Create index on account for branch names so that we can check if a
  * certain branch name matches branch_name more efficiently. */
 CREATE INDEX idx_branch_name ON account(branch_name);
 
-
--- [Problem 2]
 DROP TABLE IF EXISTS mv_branch_account_stats;
 /* This table reports various statistics about bank branches
  * with associated accounts. */
@@ -20,7 +15,6 @@ CREATE TABLE mv_branch_account_stats (
    max_balance    NUMERIC(12, 2) NOT NULL DEFAULT 0
 );
 
--- [Problem 3]
 /* The following DML statement populates the initial state of
  * the materialized view. */
 INSERT INTO mv_branch_account_stats
@@ -31,7 +25,6 @@ INSERT INTO mv_branch_account_stats
       MAX(balance) AS max_balance
    FROM account GROUP BY branch_name;
     
--- [Problem 4]
 DROP VIEW IF EXISTS branch_account_stats;
 /* This view contains various statistics about bank branches with
  * associated accounts */
@@ -44,7 +37,6 @@ CREATE VIEW branch_account_stats AS
       max_balance
    FROM mv_branch_account_stats GROUP BY branch_name;
    
--- [Problem 5]
 DELIMITER !
 
 DROP PROCEDURE IF EXISTS sp_insert!
@@ -123,7 +115,6 @@ END!
 
 DELIMITER ;
 
--- [Problem 7]
 DELIMITER !
 
 DROP PROCEDURE IF EXISTS sp_update!
